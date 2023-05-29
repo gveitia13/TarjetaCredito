@@ -1,7 +1,11 @@
 <div class="card">
   <div class="card-body">
-    <h5 class="titulo mb-3">CREAR TARJETA</h5>
-    <form action="" [formGroup]="form" (ngSubmit)="crearTarjeta()">
+    <h5 class="titulo mb-3">{{titulo|uppercase}}
+      <div *ngIf="loading" class="spinner-border float-end" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </h5>
+    <form action="" [formGroup]="form" (ngSubmit)="guardarTarjeta()">
       <div class="input-group input-group-lg mb-3">
         <span class="input-group-text">
           <i class="fas fa-user-circle" [class.green-icon]="this.form.get('titular')?.valid"
@@ -18,7 +22,7 @@
                placeholder="Número de tarjeta">
       </div>
       <div class="row">
-        <div class="col-lg-7">
+        <div class="col-sm-7">
           <div class="input-group input-group-lg mb-3">
             <span class="input-group-text">
               <i class="fas fa-calendar-alt" [class.green-icon]="this.form.get('fechaExpiracion')?.valid"
@@ -27,7 +31,7 @@
             <input type="text" formControlName="fechaExpiracion" maxlength="5" class="form-control" placeholder="MM/YY">
           </div>
         </div>
-        <div class="col-lg-5">
+        <div class="col-sm-5">
           <div class="input-group input-group-lg mb-3">
             <span class="input-group-text">
               <i class="fas fa-key" [class.green-icon]="this.form.get('cvv')?.valid"

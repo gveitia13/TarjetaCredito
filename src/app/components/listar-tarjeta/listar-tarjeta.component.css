@@ -1,4 +1,9 @@
-.fas{
+.fas {
   cursor: pointer;
   margin-right: 7px;
+}
+
+.spinner-border {
+  height: 1.5rem;
+  width: 1.5rem;
 }
